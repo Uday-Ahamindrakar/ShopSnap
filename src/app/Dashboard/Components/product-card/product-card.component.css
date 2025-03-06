@@ -1,0 +1,56 @@
+.product-card {
+  display: flex;
+  height: 300px;
+  width: 250px;
+  background-color: aqua;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.title {
+  padding-left: 15px;
+  padding-top: 10px;
+}
+
+.mat-card {
+  background-color: white;
+  border: 1px solid gray;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.mat-card:hover {
+  transform: scale(1.1); /* Pop-up effect */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Adds depth */
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: nowrap; /* Ensures items stay in one row */
+  overflow-x: auto; /* Enables horizontal scrolling */
+  overflow-y: hidden; /* Prevents vertical scroll */
+  white-space: nowrap; /* Prevents wrapping */
+  width: 98%;
+  height: auto; /* Let content determine height */
+  margin: 10px auto;
+  border-radius: 10px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 10px 3px rgba(42, 85, 229, 0.8); /* Blue glow */
+  gap: 20px; /* Adds space between items */
+  padding: 25px; /* Prevents cut-off */
+  /* background-color: red; */
+}
+
+.product-list::-webkit-scrollbar {
+  height: 3px;
+  color: #2a55e5;
+  display: block; /* Custom scrollbar height */
+}
+.product-list::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Light track background */
+}
+
+.product-list::-webkit-scrollbar-thumb {
+  background: #2a55e5; /* Blue scrollbar */
+  border-radius: 5px;
+}

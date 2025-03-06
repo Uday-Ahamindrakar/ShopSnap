@@ -1,0 +1,40 @@
+<div class="product-list">
+  <mat-card class="mat-card" *ngFor="let product of products">
+    <img mat-card-image [src]="product.image" alt="Sample Image" />
+    <mat-card-title class="title">{{ product.title }}</mat-card-title>
+    <mat-card-content>
+      <div
+        style="
+          width: 240px;
+          height: 100px;
+
+          overflow: hidden;
+          box-sizing: border-box;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+          white-space: normal;
+        "
+      >
+        <p style="margin: 0px; margin-top: 5px">{{ product.description }}</p>
+      </div>
+
+      <hr />
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        color="primary"
+        style="background-color: #2a55e5; color: white"
+      >
+        Buy Now
+      </button>
+      <button
+        mat-button
+        color="warn"
+        style="margin-left: auto; background-color: #ff9f00; color: white"
+      >
+        Add to Cart
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="navbar">
+    <mat-toolbar class="matTool">
+      <img
+        src="assets/images/shopSnapOne.png"
+        alt=""
+        style="height: 70px; width: 70px"
+      />
+      <span class="websiteHeading"> <i> ShopSnap</i></span>
+
+      <div class="userProfile">
+        <div class="menu">
+          <p>Orders</p>
+        </div>
+        <div class="menu">
+          <p>Cart</p>
+        </div>
+
+        <div class="userName">
+          <p id="welcome">Welcome</p>
+          <p id="nameOfUser">Uday Ahamindrakar</p>
+        </div>
+        <div class="userPhoto">
+          <img
+            src="assets/images/profilePic.png"
+            alt=""
+            height="50px"
+            width="50px"
+          />
+        </div>
+      </div>
+    </mat-toolbar>
+  </div>
+
+  <div class="dashboard">
+    <div class="dashboard-content">
+      <div class="advertise">
+        <img
+          src="https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/f6c2fbe6b103cb71.jpg?q=20"
+          alt=""
+          width="100%"
+          height="100%"
+          object-fit="cover"
+        />
+      </div>
+      <!-- <div class="product-list-container">
+        <div class="product-list">
+          <app-product-card></app-product-card>
+        </div>
+      </div> -->
+      <div class="product-list-container">
+        <!-- <div class="product-list"> -->
+        <app-product-card [products]="productList"></app-product-card>
+        <!-- </div> -->
+      </div>
+      <div class="product-list-container">
+        <!-- <div class="product-list"> -->
+        <app-product-card [products]="productList"></app-product-card>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</div>
