@@ -9,6 +9,7 @@
 .navbar {
   height: 6.5%;
   width: 100%;
+
   /* background-color: red; */
 }
 
@@ -16,10 +17,10 @@
   background-color: #bde0fe;
   /* background-color: #eaeaea; */
   /* position: fixed;
-  top: 0; 
-  left: 0; 
-  width: 100%; 
-  z-index: 1000; */
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    z-index: 1000; */
   /* background-color: linear-gradient(to right, #1f3f77, #2a55e5); */
 }
 
@@ -29,6 +30,7 @@
   color: #2a55e5;
   padding-bottom: 5px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .userProfile {
@@ -78,6 +80,7 @@ p {
 
 .dashboard {
   height: 92%;
+  padding-top: 20px;
   width: 100%;
 }
 
@@ -88,7 +91,7 @@ p {
   margin-left: auto;
   margin-right: auto;
   /* border-left: 1px solid black;
-  border-right: 1px solid black; */
+    border-right: 1px solid black; */
   /* box-sizing: border-box; */
   /* overflow-y: scroll; */
 }
@@ -118,9 +121,17 @@ p {
   margin-right: 50px;
 }
 
+.mat-mdc-form-field {
+  margin-top: 16px;
+}
+
+.matSteper {
+  background-color: white;
+}
+
 .product-list-container {
-  height: 68%;
-  width: 98%;
+  height: auto;
+  width: 70%;
   margin-left: auto;
   margin-right: auto;
   /* background-color: blue; */
@@ -130,33 +141,17 @@ p {
   overflow: hidden;
 }
 
-/* .product-list {
-  display: flex;
-  width: 98%;
-  height: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
-  border-radius: 10px;
+.mat-card {
+  /* background-color: white; */
+  border: 1px solid gray;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-sizing: border-box;
-  overflow-x: scroll;
+  margin-bottom: 40px;
+  padding: 25px;
+  /* box-shadow: 0 10px 20px rgba(0, 183, 255, 0.733); Adds depth */
+}
 
-  box-shadow: 0px 0px 10px 3px rgba(42, 85, 229, 0.8); 
-} */
-
-.product-list {
-  display: flex;
-  flex-wrap: nowrap; /* Ensures items stay in one row */
-  overflow-x: auto; /* Enables horizontal scrolling */
-  overflow-y: hidden; /* Prevents vertical scroll */
-  white-space: nowrap; /* Prevents wrapping */
-  width: 98%;
-  height: auto; /* Let content determine height */
-  margin: 10px auto;
-  border-radius: 10px;
-  box-sizing: border-box;
-  box-shadow: 0px 0px 10px 3px rgba(42, 85, 229, 0.8); /* Blue glow */
-  gap: 20px; /* Adds space between items */
-  padding: 10px; /* Prevents cut-off */
-  /* background-color: red; */
+.mat-card:hover {
+  transform: scale(1.1); /* Pop-up effect */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Adds depth */
 }

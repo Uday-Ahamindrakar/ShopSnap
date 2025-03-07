@@ -1,0 +1,193 @@
+<div class="container">
+  <div class="navbar">
+    <mat-toolbar class="matTool">
+      <img
+        src="assets/images/shopSnapOne.png"
+        alt=""
+        style="height: 70px; width: 70px"
+      />
+      <a routerLink="" class="websiteHeading"> <i> ShopSnap</i></a>
+
+      <div class="userProfile">
+        <div class="menu">
+          <p>Orders</p>
+        </div>
+        <div class="menu">
+          <p>Cart</p>
+        </div>
+
+        <div class="userName">
+          <p id="welcome">Welcome</p>
+          <p id="nameOfUser">Uday Ahamindrakar</p>
+        </div>
+        <div class="userPhoto">
+          <img
+            src="assets/images/profilePic.png"
+            alt=""
+            height="50px"
+            width="50px"
+          />
+        </div>
+      </div>
+    </mat-toolbar>
+  </div>
+
+  <div class="dashboard">
+    <div class="dashboard-content">
+      <mat-stepper #stepper class="matSteper">
+        <mat-step label="Cart Summary">
+          <div class="product-list-container">
+            <mat-card class="mat-card" *ngFor="let product of productList">
+              <img
+                mat-card-image
+                [src]="product.product_imageUrl"
+                alt="Sample Image"
+              />
+              <mat-card-title class="title">{{
+                product.product_title
+              }}</mat-card-title>
+              <mat-card-content>
+                <div
+                  style="
+                    width: 240px;
+                    height: 70px;
+
+                    overflow: hidden;
+                    box-sizing: border-box;
+                    word-wrap: break-word;
+                    overflow-wrap: break-word;
+                    white-space: normal;
+                  "
+                >
+                  <p
+                    style="
+                      margin: 0px;
+                      margin-top: 5px;
+                      font-size: 15px;
+                      color: gray;
+                    "
+                  >
+                    {{ product.product_description }}
+                  </p>
+                </div>
+
+                <div
+                  style="
+                    width: 240px;
+                    height: 40px;
+
+                    overflow: hidden;
+                    box-sizing: border-box;
+                    word-wrap: break-word;
+                    overflow-wrap: break-word;
+                    white-space: normal;
+                    color: darkslategray;
+                    padding-top: 5px;
+                    font-size: 25px;
+                    font-weight: bold;
+                  "
+                >
+                  ₹ {{ product.product_price }}
+                </div>
+
+                <hr />
+              </mat-card-content>
+              <mat-card-actions style="margin-top: 10px">
+                <!-- <button
+                  mat-raised-button
+                  color="primary"
+                  style="background-color: #2a55e5; color: white"
+                >
+                  Buy Now
+                </button> -->
+                <button
+                  mat-button
+                  color="warn"
+                  style="
+                    background-color: #ff3131;
+                    color: white;
+                    font-size: 25px;
+                    padding: 10px;
+                  "
+                >
+                  Delete
+                </button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+          <!-- <div *ngFor="let product of cartItems">
+              <p>{{ product.name }} - ₹{{ product.price }} x {{ product.quantity }}</p>
+            </div>
+            <button mat-button matStepperNext>Next</button> -->
+          <button
+            mat-buttonue
+            matStepperNext
+            style="
+              font-size: 20px;
+              max-width: 800px;
+              width: 100%;
+              border-radius: 10px;
+              border: 0px;
+              padding: 10px;
+              background-color: #007bff;
+              color: white;
+            "
+          >
+            Next
+          </button>
+        </mat-step>
+        <mat-step
+          [stepControl]="firstFormGroup"
+          errorMessage="Name is required."
+        >
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Fill out your name</ng-template>
+            <mat-form-field>
+              <mat-label>Name</mat-label>
+              <input
+                matInput
+                placeholder="Last name, First name"
+                formControlName="firstCtrl"
+                required
+              />
+            </mat-form-field>
+            <div>
+              <p>Go to a different step to see the error state</p>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step
+          [stepControl]="secondFormGroup"
+          errorMessage="Address is required."
+        >
+          <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Fill out your address</ng-template>
+            <mat-form-field>
+              <mat-label>Address</mat-label>
+              <input
+                matInput
+                placeholder="Ex. 1 Main St, New York, NY"
+                formControlName="secondCtrl"
+                required
+              />
+            </mat-form-field>
+            <div>
+              <p>Go to a different step to see the error state</p>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+          </div>
+        </mat-step>
+      </mat-stepper>
+    </div>
+  </div>
+</div>

@@ -6,14 +6,19 @@
         alt=""
         style="height: 70px; width: 70px"
       />
-      <span class="websiteHeading"> <i> ShopSnap</i></span>
+      <a class="websiteHeading"> <i> ShopSnap</i></a>
 
       <div class="userProfile">
         <div class="menu">
           <p>Orders</p>
         </div>
         <div class="menu">
-          <p>Cart</p>
+          <!-- <p>Cart</p> -->
+          <a
+            routerLink="/checkout"
+            style="text-decoration: none; color: #606366"
+            >Cart</a
+          >
         </div>
 
         <div class="userName">
@@ -50,7 +55,8 @@
       </div> -->
       <div class="product-list-container">
         <!-- <div class="product-list"> -->
-        <app-product-card [products]="productList"></app-product-card>
+        <app-product-card></app-product-card>
+        <!-- [products]="productList" -->
         <!-- </div> -->
       </div>
       <!-- <div class="product-list-container">
