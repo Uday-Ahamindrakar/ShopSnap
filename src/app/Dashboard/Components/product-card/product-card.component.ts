@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Product } from '../../../product';
 
 @Component({
   selector: 'app-product-card',
@@ -8,7 +7,11 @@ import { Product } from '../../../product';
   styleUrl: './product-card.component.css',
 })
 export class ProductCardComponent {
-  @Input() products: { image: string; title: string; description: string }[] =
-    [];
+  @Input() products: {
+    product_imageUrl: string;
+    product_title: string;
+    product_description: string;
+    product_price: number;
+  }[] = [];
   // @Input() product: Product[] = [];
 }

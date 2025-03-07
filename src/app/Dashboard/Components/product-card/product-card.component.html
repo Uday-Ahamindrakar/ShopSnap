@@ -1,12 +1,12 @@
 <div class="product-list">
   <mat-card class="mat-card" *ngFor="let product of products">
-    <img mat-card-image [src]="product.image" alt="Sample Image" />
-    <mat-card-title class="title">{{ product.title }}</mat-card-title>
+    <img mat-card-image [src]="product.product_imageUrl" alt="Sample Image" />
+    <mat-card-title class="title">{{ product.product_title }}</mat-card-title>
     <mat-card-content>
       <div
         style="
           width: 240px;
-          height: 100px;
+          height: 70px;
 
           overflow: hidden;
           box-sizing: border-box;
@@ -15,7 +15,28 @@
           white-space: normal;
         "
       >
-        <p style="margin: 0px; margin-top: 5px">{{ product.description }}</p>
+        <p style="margin: 0px; margin-top: 5px; font-size: 15px; color: gray">
+          {{ product.product_description }}
+        </p>
+      </div>
+
+      <div
+        style="
+          width: 240px;
+          height: 40px;
+
+          overflow: hidden;
+          box-sizing: border-box;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+          white-space: normal;
+          color: darkslategray;
+          padding-top: 5px;
+          font-size: 25px;
+          font-weight: bold;
+        "
+      >
+        ₹ {{ product.product_price }}
       </div>
 
       <hr />

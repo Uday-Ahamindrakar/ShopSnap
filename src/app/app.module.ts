@@ -8,7 +8,7 @@ import {
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainDashboardComponent } from './Dashboard/Components/main-dashboard/main-dashboard.component';
-
+import { provideHttpClient } from '@angular/common/http';
 // #####################  Material imports  #####################
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ProductCardComponent } from './Dashboard/Components/product-card/product-card.component';
@@ -23,7 +23,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     MatButtonModule,
   ],
-  providers: [provideClientHydration(withEventReplay())],
+  providers: [provideClientHydration(withEventReplay()), provideHttpClient()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
