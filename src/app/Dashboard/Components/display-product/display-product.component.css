@@ -4,6 +4,7 @@
   width: 100%;
   /* overflow: hidden; */
   /* background-color: red; */
+  background-color: #f1f3f6;
 }
 
 .navbar {
@@ -17,10 +18,10 @@
   background-color: #bde0fe;
   /* background-color: #eaeaea; */
   /* position: fixed;
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    z-index: 1000; */
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      z-index: 1000; */
   /* background-color: linear-gradient(to right, #1f3f77, #2a55e5); */
 }
 
@@ -87,13 +88,16 @@ p {
 .dashboard-content {
   /* display: flex; */
   height: auto;
-  width: 90%;
+  max-width: 70%;
   margin-left: auto;
   margin-right: auto;
-  /* border-left: 1px solid black;
-    border-right: 1px solid black; */
+  border-left: 0.5px solid gray;
+  border-right: 0.5px solid gray;
+  padding: 40px;
   /* box-sizing: border-box; */
   /* overflow-y: scroll; */
+  background-color: white;
+  border-radius: 15px;
 }
 
 .advertise {
@@ -130,30 +134,35 @@ p {
 }
 
 .product-list-container {
-  max-height: 680px;
-  width: 98%;
+  height: auto;
+  width: 40%;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 10px;
   /* background-color: blue; */
   margin-top: 10px;
   border-radius: 10px;
   box-sizing: border-box;
-  overflow: scroll;
+  overflow: hidden;
 }
 
-.mat-card {
-  /* background-color: white; */
-  border: 1px solid gray;
-
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-sizing: border-box;
-  margin-bottom: 40px;
-  padding: 25px;
-  /* box-shadow: 0 10px 20px rgba(0, 183, 255, 0.733); Adds depth */
+.imageDiv {
+  /* display: flex; */
+  width: 100%;
+  /* background-color: red; */
 }
 
-.mat-card:hover {
-  transform: scale(1.1); /* Pop-up effect */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Adds depth */
+.product-details {
+  /* display: flex; */
+  width: 100%;
+  /* background-color: #2a55e5; */
+}
+
+.display-product {
+  padding-bottom: 20px;
+  border-bottom: 0.5px solid gray;
+  display: flex;
+}
+
+li {
+  padding: 10px;
 }

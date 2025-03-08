@@ -3,7 +3,7 @@
   height: auto;
   width: 100%;
   /* overflow: hidden; */
-  /* background-color: red; */
+  /* background-color: #f1f3f6; */
 }
 
 .navbar {
@@ -13,7 +13,8 @@
 }
 
 .matTool {
-  background-color: #bde0fe;
+  background-color: #2874f0;
+  /* background-color: #bde0fe; */
   /* background-color: #eaeaea; */
   /* position: fixed;
   top: 0; 
@@ -26,7 +27,7 @@
 .websiteHeading {
   font-size: 35px;
   font-weight: bold;
-  color: #2a55e5;
+  color: white;
   padding-bottom: 5px;
   cursor: pointer;
 }
@@ -66,14 +67,16 @@ p {
 
 #welcome {
   font-size: 18px;
-  color: #606366;
+  /* color: #606366; */
+  color: white;
 }
 
 #nameOfUser {
   font-size: 15px;
   font-style: italic;
-  color: #606366;
+  /* color: #606366; */
   /* text-align: right; */
+  color: white;
 }
 
 .dashboard {
@@ -112,8 +115,9 @@ p {
   padding-top: 12px;
   height: 50px;
   width: 80px;
-  color: #606366;
+  /* color: #606366; */
   /* background-color: green; */
+  color: white;
   box-sizing: border-box;
   margin-right: 50px;
 }

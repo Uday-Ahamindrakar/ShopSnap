@@ -1,6 +1,11 @@
-<div class="product-list">
-  <mat-card class="mat-card" *ngFor="let product of products">
-    <img mat-card-image [src]="product.product_imageUrl" alt="Sample Image" />
+<div class="product-list" style="cursor: pointer">
+  <mat-card class="mat-card" *ngFor="let product of products; let i = index">
+    <img
+      mat-card-image
+      [src]="product.product_imageUrl"
+      alt="Sample Image"
+      (click)="goToProduct(i)"
+    />
     <mat-card-title class="title">{{ product.product_title }}</mat-card-title>
     <mat-card-content>
       <div
@@ -14,6 +19,7 @@
           overflow-wrap: break-word;
           white-space: normal;
         "
+        (click)="goToProduct(i)"
       >
         <p style="margin: 0px; margin-top: 5px; font-size: 15px; color: gray">
           {{ product.product_description }}
@@ -42,17 +48,14 @@
       <hr />
     </mat-card-content>
     <mat-card-actions>
-      <button
-        mat-raised-button
-        color="primary"
-        style="background-color: #2a55e5; color: white"
-      >
+      <button mat-flat-button color="primary" (click)="addToCart(i)">
         Buy Now
       </button>
       <button
         mat-button
         color="warn"
         style="margin-left: auto; background-color: #ff9f00; color: white"
+        (click)="addToCartCART(i)"
       >
         Add to Cart
       </button>

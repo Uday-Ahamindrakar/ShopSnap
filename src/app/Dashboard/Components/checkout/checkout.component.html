@@ -12,9 +12,9 @@
         <div class="menu">
           <p>Orders</p>
         </div>
-        <div class="menu">
+        <!-- <div class="menu">
           <p>Cart</p>
-        </div>
+        </div> -->
 
         <div class="userName">
           <p id="welcome">Welcome</p>
@@ -36,85 +36,190 @@
     <div class="dashboard-content">
       <mat-stepper #stepper class="matSteper">
         <mat-step label="Cart Summary">
-          <div class="product-list-container">
-            <mat-card class="mat-card" *ngFor="let product of productList">
-              <img
-                mat-card-image
-                [src]="product.product_imageUrl"
-                alt="Sample Image"
-              />
-              <mat-card-title class="title">{{
-                product.product_title
-              }}</mat-card-title>
-              <mat-card-content>
-                <div
-                  style="
-                    width: 240px;
-                    height: 70px;
-
-                    overflow: hidden;
-                    box-sizing: border-box;
-                    word-wrap: break-word;
-                    overflow-wrap: break-word;
-                    white-space: normal;
-                  "
+          <div class="cartDetails" style="display: flex">
+            <div
+              class="cartSum"
+              style="width: 80%; border-right: 0.5px solid grey"
+            >
+              <div class="product-list-container">
+                <mat-card
+                  style="width: 100%; padding: 20px; margin-bottom: 20px"
+                  *ngFor="let product of productList; let i = index"
                 >
-                  <p
-                    style="
-                      margin: 0px;
-                      margin-top: 5px;
-                      font-size: 15px;
-                      color: gray;
-                    "
-                  >
-                    {{ product.product_description }}
-                  </p>
-                </div>
+                  <div class="productdiv" style="display: flex">
+                    <div class="divimg" style="width: 30%; text-align: center">
+                      <img
+                        mat-card-image
+                        [src]="product.product_imageUrl"
+                        alt="Sample Image"
+                        style="height: 200px; border-radius: 10px"
+                      />
+                    </div>
+                    <div
+                      class="divContent"
+                      style="
+                        width: 70%;
+                        padding-left: 20px;
+                        border-left: 0.5px solid gray;
+                      "
+                    >
+                      <mat-card-title class="title">{{
+                        product.product_title
+                      }}</mat-card-title>
+                      <mat-card-content>
+                        <div
+                          style="
+                            height: 70px;
 
-                <div
-                  style="
-                    width: 240px;
-                    height: 40px;
+                            overflow: hidden;
+                            box-sizing: border-box;
+                            word-wrap: break-word;
+                            overflow-wrap: break-word;
+                            white-space: normal;
+                          "
+                        >
+                          <p
+                            style="
+                              margin: 0px;
+                              margin-top: 5px;
+                              font-size: 15px;
+                              color: gray;
+                            "
+                          >
+                            {{ product.product_description }}
+                          </p>
+                        </div>
 
-                    overflow: hidden;
-                    box-sizing: border-box;
-                    word-wrap: break-word;
-                    overflow-wrap: break-word;
-                    white-space: normal;
-                    color: darkslategray;
-                    padding-top: 5px;
-                    font-size: 25px;
-                    font-weight: bold;
-                  "
-                >
-                  ₹ {{ product.product_price }}
-                </div>
+                        <div
+                          style="
+                            height: 40px;
 
-                <hr />
-              </mat-card-content>
-              <mat-card-actions style="margin-top: 10px">
-                <!-- <button
-                  mat-raised-button
-                  color="primary"
-                  style="background-color: #2a55e5; color: white"
+                            overflow: hidden;
+                            box-sizing: border-box;
+                            word-wrap: break-word;
+                            overflow-wrap: break-word;
+                            white-space: normal;
+                            color: darkslategray;
+                            padding-top: 5px;
+                            font-size: 25px;
+                            font-weight: bold;
+                          "
+                        >
+                          ₹ {{ product.product_price }}
+                        </div>
+
+                        <hr />
+                      </mat-card-content>
+                      <mat-card-actions style="margin-top: 10px">
+                        <button
+                          mat-button
+                          color="warn"
+                          style="
+                            background-color: #ff3131;
+                            color: white;
+                            font-size: 20px;
+                            margin-left: auto;
+                            margin-right: 20px;
+                            width: 20%;
+                          "
+                          (click)="delectProductFromCart(i)"
+                        >
+                          Delete
+                        </button>
+                      </mat-card-actions>
+                    </div>
+                  </div>
+                </mat-card>
+                <!-- <mat-card
+                  class="mat-card"
+                  *ngFor="let product of productList; let i = index"
                 >
-                  Buy Now
-                </button> -->
-                <button
-                  mat-button
-                  color="warn"
-                  style="
-                    background-color: #ff3131;
-                    color: white;
-                    font-size: 25px;
-                    padding: 10px;
-                  "
-                >
-                  Delete
-                </button>
-              </mat-card-actions>
-            </mat-card>
+                  <img
+                    mat-card-image
+                    [src]="product.product_imageUrl"
+                    alt="Sample Image"
+                  />
+                  <mat-card-title class="title">{{
+                    product.product_title
+                  }}</mat-card-title>
+                  <mat-card-content>
+                    <div
+                      style="
+                        width: 240px;
+                        height: 70px;
+    
+                        overflow: hidden;
+                        box-sizing: border-box;
+                        word-wrap: break-word;
+                        overflow-wrap: break-word;
+                        white-space: normal;
+                      "
+                    >
+                      <p
+                        style="
+                          margin: 0px;
+                          margin-top: 5px;
+                          font-size: 15px;
+                          color: gray;
+                        "
+                      >
+                        {{ product.product_description }}
+                      </p>
+                    </div>
+    
+                    <div
+                      style="
+                        width: 240px;
+                        height: 40px;
+    
+                        overflow: hidden;
+                        box-sizing: border-box;
+                        word-wrap: break-word;
+                        overflow-wrap: break-word;
+                        white-space: normal;
+                        color: darkslategray;
+                        padding-top: 5px;
+                        font-size: 25px;
+                        font-weight: bold;
+                      "
+                    >
+                      ₹ {{ product.product_price }}
+                    </div>
+    
+                    <hr />
+                  </mat-card-content>
+                  <mat-card-actions style="margin-top: 10px">
+                    
+                    <button
+                      mat-button
+                      color="warn"
+                      style="
+                        background-color: #ff3131;
+                        color: white;
+                        font-size: 25px;
+                        padding: 10px;
+                      "
+                      (click)="delectProductFromCart(i)"
+                    >
+                      Delete
+                    </button>
+                  </mat-card-actions>
+                </mat-card> -->
+              </div>
+            </div>
+            <div class="cartAmt" style="padding: 20px; max-width: 20%">
+              <h2>Cart total</h2>
+              <div *ngFor="let product of productList">
+                <p style="padding: 10px">
+                  {{ product.product_title }} = {{ product.product_price }}
+                </p>
+              </div>
+              <br />
+              <hr />
+              <p style="font-size: 25px">Total = {{ total }}</p>
+            </div>
           </div>
+
           <!-- <div *ngFor="let product of cartItems">
               <p>{{ product.name }} - ₹{{ product.price }} x {{ product.quantity }}</p>
             </div>
@@ -124,17 +229,22 @@
             matStepperNext
             style="
               font-size: 20px;
-              max-width: 800px;
+              max-width: 100%;
               width: 100%;
               border-radius: 10px;
               border: 0px;
               padding: 10px;
-              background-color: #007bff;
-              color: white;
+
+              color: black;
             "
+            [disabled]="disabled"
+            [ngStyle]="{
+              'background-color': nextBcolor ? '#007bff' : '#dfdee2'
+            }"
           >
             Next
           </button>
+          <!-- background-color: #007bff; -->
         </mat-step>
         <mat-step
           [stepControl]="firstFormGroup"

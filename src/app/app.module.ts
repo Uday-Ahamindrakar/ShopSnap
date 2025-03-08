@@ -19,6 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { DisplayProductComponent } from './Dashboard/Components/display-product/display-product.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MainDashboardComponent,
     ProductCardComponent,
     CheckoutComponent,
+    DisplayProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSnackBarModule,
   ],
   providers: [provideClientHydration(withEventReplay()), provideHttpClient()],
   bootstrap: [AppComponent],

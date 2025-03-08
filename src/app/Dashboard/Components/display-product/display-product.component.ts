@@ -1,75 +1,63 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DashboardProductService } from '../../../Service/dashboard-product.service';
 import { ProductList } from '../../../Service/productList';
 import { CartService } from '../../../Service/cart.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 @Component({
-  selector: 'app-product-card',
+  selector: 'app-display-product',
   standalone: false,
-  templateUrl: './product-card.component.html',
-  styleUrl: './product-card.component.css',
+  templateUrl: './display-product.component.html',
+  styleUrl: './display-product.component.css',
 })
-export class ProductCardComponent implements OnInit {
+export class DisplayProductComponent implements OnInit {
   constructor(
-    private productDasboardService: DashboardProductService,
+    private productService: DashboardProductService,
     private cartService: CartService,
     private snackBar: MatSnackBar,
     private router: Router
   ) {}
 
-  products: ProductList[] = [];
+  product: ProductList = {
+    product_imageUrl: '',
+    product_title: '',
+    product_description: '',
+    product_price: 0,
+  };
 
   ngOnInit(): void {
-    this.productDasboardService.getAllProducts();
-    this.productDasboardService.productList$.subscribe((data) => {
-      this.products = data;
+    this.productService.displayProduct$.subscribe((data) => {
+      this.product = data;
+      // console.log(this.product);
     });
   }
 
-  addToCart(index: number) {
-    const newProduct: ProductList = this.products[index];
+  addToCartCART() {
+    const newProduct: ProductList = this.product;
     const currentCart = this.cartService.cart.value;
     const updatedCart = [...currentCart, newProduct];
     this.cartService.cart.next(updatedCart);
 
     this.snackBar.open(`${newProduct.product_title} added to cart`, 'Close', {
-      duration: 3000, // Auto close after 3 seconds
-      horizontalPosition: 'center',
-      verticalPosition: 'bottom',
-      panelClass: ['snackbar-success'], // Custom styling (optional)
-    });
-    this.router.navigate(['/checkout']);
-  }
-
-  addToCartCART(index: number) {
-    const newProduct: ProductList = this.products[index];
-    const currentCart = this.cartService.cart.value;
-    const updatedCart = [...currentCart, newProduct];
-    this.cartService.cart.next(updatedCart);
-
-    this.snackBar.open(`${newProduct.product_title} added to cart`, 'Close', {
-      duration: 3000, // Auto close after 3 seconds
+      duration: 5000, // Auto close after 3 seconds
       horizontalPosition: 'center',
       verticalPosition: 'bottom',
       panelClass: ['snackbar-success'], // Custom styling (optional)
     });
     // this.router.navigate(['/checkout']);
   }
+  addToCart() {
+    const newProduct: ProductList = this.product;
+    const currentCart = this.cartService.cart.value;
+    const updatedCart = [...currentCart, newProduct];
+    this.cartService.cart.next(updatedCart);
 
-  goToProduct(index: number) {
-    this.productDasboardService.displayProductSubject.next(
-      this.products[index]
-    );
-    // console.log(this.products[index]);
-    this.router.navigate(['/orders']);
+    this.snackBar.open(`${newProduct.product_title} added to cart`, 'Close', {
+      duration: 5000, // Auto close after 3 seconds
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom',
+      panelClass: ['snackbar-success'], // Custom styling (optional)
+    });
+    this.router.navigate(['/checkout']);
   }
-
-  // @Input() products: {
-  //   product_imageUrl: string;
-  //   product_title: string;
-  //   product_description: string;
-  //   product_price: number;
-  // }[] = [];
-  // @Input() product: Product[] = [];
 }
