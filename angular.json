@@ -29,12 +29,17 @@
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "src/assets",
-                "output": "assets/"
-              }
-            ],
+  {
+    "glob": "**/*",
+    "input": "src/assets",
+    "output": "assets/"
+  },
+  {
+    "glob": "_redirects",
+    "input": "src/",
+    "output": "./"
+  }
+],
             "styles": [
               "src/custom-theme.scss",
               "src/styles.css"
